@@ -25,7 +25,7 @@ namespace Secrets_Sharing_BE.Controllers
             try
             {
                 var user = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;//after login success will return current login userid
-                if (!string.IsNullOrEmpty(user))
+                if (string.IsNullOrEmpty(user))
                 {
                     return Error("User doesn't exist");
                 }
@@ -99,7 +99,7 @@ namespace Secrets_Sharing_BE.Controllers
             try
             {
                 var user = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-                if (!string.IsNullOrEmpty(user))
+                if (string.IsNullOrEmpty(user))
                 {
                     return Error("User doesn't exist");
                 }
